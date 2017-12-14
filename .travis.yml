@@ -1,0 +1,25 @@
+language: java  
+
+jdk:
+- oraclejdk8
+
+services:
+- docker
+
+sudo: required
+
+before_install:
+- docker pull evaurjc2017/videoclub:pracsql
+- docker build -t practicaserver .
+- docker images
+
+script:
+- mvn clean test
+
+after_success:
+- if [ "$TRAVIS_BRANCH" == "master" ]; then
+  docker login -u "evaurjc2017" -p "qwertyuiop";
+  docker tag evaurjc2017/videoclub:pracsql evaurjc2017/videoclubel:pracsql;
+  docker tag practicaserver evaurjc2017/videoclubel:practicaserver;
+  docker push evaurjc2017/videoclubel;
+  fi
