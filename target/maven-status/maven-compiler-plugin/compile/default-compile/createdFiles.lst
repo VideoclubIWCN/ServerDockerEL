@@ -1,0 +1,5 @@
+com/iwcn/master/controllers/AppRestController.class
+com/iwcn/master/PracticaServerMySql.class
+com/iwcn/master/services/DatabaseServices.class
+com/iwcn/master/model/PeliculaConcreta.class
+com/iwcn/master/repositories/PeliculaConcretaRepository.class
